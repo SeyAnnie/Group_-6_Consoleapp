@@ -65,3 +65,13 @@ def covid19():
     if choice == "4":
         exit()
     elif choice == "3":
+
+        # Get list of countries
+        with urlopen(BASE_URL_2 + "regions") as resp:
+            body = resp.read()
+        countries = eval(body)["data"]
+        for country in countries:
+            print(f'{country["iso"]}: {country["name"]}')
+    elif choice == "1":
+        date_input = input("Enter the date in YYYY-MM-DD forma(default to current date): ") or datetime.now().strftime(
+            "%Y-%m-%d")
