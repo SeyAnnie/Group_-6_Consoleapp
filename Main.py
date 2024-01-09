@@ -1,5 +1,3 @@
-# I defined the number Api
-
 from urllib.request import urlopen
 from datetime import datetime
 import json
