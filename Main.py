@@ -27,3 +27,23 @@ def numbersapi_url():
         pass
 
     print(data)
+
+    #functin to get the data of from the covid API
+def get_data(date=None, iso=None):
+    url = BASE_URL_2 + "reports/total?date=" + date
+    if iso:
+        url += "&iso=" + iso
+    print("Fetching data...")
+    with urlopen(url) as response:
+        data = response.read()
+    data = eval(data)
+    data = data["data"]
+    if not data:
+        print("No data found for the given date and country code")
+        return
+    print("Total Confirmed Cases: ", data["confirmed"])
+    print("Total Active Cases: ", data["active"])
+    print("Total Deaths: ", data["deaths"])
+    print("New Cases: ", data["confirmed_diff"])
+    print("New Deaths: ", data["deaths_diff"])
+    print("Total Recovered: ", data["recovered"])
