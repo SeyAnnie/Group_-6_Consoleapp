@@ -74,3 +74,37 @@ def covid19():
         # Get country data
         country_iso = input("Enter the country code(NGA for Nigeria): ")
         get_data(date_input, country_iso) 
+
+
+# main function for the project
+if __name__ == "__main__":
+    while True:
+        print(
+            """
+            Welcome to the Group 6 Python Console App.
+            Please choose which API you want to use.
+            1 - Numbers App
+            2 - COVID-19 App
+            3 - Exit Program
+            """
+        )
+        tmp = input("Enter a number: ")
+       
+        if tmp == "1":
+            while True:
+                numbersapi_url()
+                print("\n")
+                cont = input("Do you want to continue using Numbers API? (y/n): ")
+                if cont.lower() == "n":
+                    break
+        elif tmp == "2":
+            while True:
+                covid19()
+                print("\n")
+                cont = input("Do you want to continue using COVID-19 API? (y/n): ")
+                if cont.lower() == "n":
+                    break
+        elif tmp == "3":
+            print("Exiting program.")
+            break
+        
