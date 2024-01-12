@@ -1,4 +1,3 @@
-# Contributor: Precious Nnodi
 # Numbers API and Covid-19 Tracker Integration
 
 ## Explaining what this Repository is about
