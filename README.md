@@ -1,18 +1,19 @@
-# Numbers API and Covid-19 Tracker Integration
+## Numbers API and Covid-19 Tracker Integration
 
-## Explaining what this Repository is about
+This repository contains a powerful integration of the Numbers API and a Covid-19 Tracker app, providing users with a comprehensive tool to explore numerical trivia and real-time Covid-19 statistics. This integration aims to offer a seamless and intuitive experience to developers, data enthusiast, or someone interested in staying informed about the global pandemic. 
 
-This repository contains a powerful integration of the Numbers API and a Covid-19 Tracker app, providing users with a comprehensive tool to explore numerical trivia and real-time Covid-19 statistics. Whether you're a developer, data enthusiast, or someone interested in staying informed about the global pandemic, this integration offers a seamless and intuitive experience. 
-This documentation explains 3 parts of this project, so let's dive right in:
+This documentation consists of 3 main parts of the project:
 1.	Numbers API
 2.	Covid-19 Tracker App
 3.	API Integration
 
-## Numbers API
-This API is for interesting facts about numbers. We picked this because it can be used to bring interesting facts about metrics and stories about dates. When used with the COVID-19 tracker app, it can bring interesting information about the metrics and dates. 
+### Numbers API
+This API was chosen because it retrieves interesting facts about dates based on the number inputs. When used with the COVID-19 tracker app, it can bring interesting information about the metrics and dates. 
 
 ### Numbers API Integration
-On this project, we got the url for the Api from the website; http://numbersapi.com/, then went ahead to define  the function on VS Code:
+Here, we got the url for the Api from the [website](http://numbersapi.com/), then went ahead to define the function on VS Code:
+
+```
 def numbersapi_url():
     BASE_URL_1 = "http://numbersapi.com/"
     print("""
@@ -25,12 +26,15 @@ def numbersapi_url():
 
     with urlopen(url) as response:
         data = response.read().decode()
+```
 
-‘’’’COVID 19 Tracker App
-leverages data from the Covid-19 API to provide real-time and historical information about the global Covid-19 pandemic. It serves as a valuable tool for users seeking accurate and up-to-date statistics on the spread of the virus at both a global and country-specific level. 
+### COVID 19 Tracker App
+Leveraging data from the Covid-19 API, this app provides real-time and historical information about the global Covid-19 pandemic. It serves as a valuable tool for users seeking accurate and up-to-date statistics on the spread of the virus at both a global and country-specific level.
 
-“””Covid-19 API Integration
-We got the Url for the website; https://covid-api.com/api/, then went ahead to define the function for the Api:
+### Covid-19 API Integration
+We got the Url for the [website](https://covid-api.com/api/), then went ahead to define the function to fetch data from the API:
+
+```
 def get_data(date=None, iso=None):
     url = BASE_URL_2 + "reports/total?date=" + date
     if iso:
@@ -40,8 +44,11 @@ def get_data(date=None, iso=None):
         data = response.read()
     data = eval(data)
     data = data["data"]
+```
 
-We then proceeded to define the main function for the API using the get data function, which directs you to the choice of information you would like to get about the COVID19 Pandemic: 
+Moving ahead, we defined the main function for the API using the get data_function, which directs users to choose information they would like to get about the COVID-19 Pandemic:
+
+```
 def covid19():
     print(
         """Welcome to the COVID-19 Tracker App
@@ -53,10 +60,11 @@ def covid19():
         """
     )
     choice = input("Enter your choice: ")
+```
 
-“” API Integration
-We worked on integrating the two apps to work concurrently. So that you can get data about the covid19 pandemic, as well as get interesting facts about the dates from the pandemic, using the numbers API.
-We called the function for this, which means, you could select which of the APIs you want to use.
+### API Integration
+By integrating the two APIS concurrently, a user is able to retrieve data about the COVID-19 pandemic as well as get interesting facts about the dates using the Numbers API. This function below prompts a user to select which API they want to use and subsequently exit the program, based on user requests.
+```
 if __name__ == "__main__":
     while True:
         print(
@@ -87,20 +95,21 @@ if __name__ == "__main__":
         elif tmp == "3":
             print("Exiting program.")
             break
+```
 
 
-##### Git Repository
-We completed this project by cloning the git repository, using:
- git clone https://github.com/SeyAnnie/Group_-6_Consoleapp.git
+### Git Repository
+We collaborated in this project by cloning the git repository to our local repos, using the code below. After which we made our constributions and pushed to the main branch.
+ *git clone https://github.com/SeyAnnie/Group_-6_Consoleapp.git*
  
-##### Contributors
+### Contributors
 Team Lead
-Precious Nnodi
+* Precious Nnodi
 
 Team Members
-Aniedi Bassey
-Favor Alozie
-Adeola Adeagbo
-Sherifat Sanni
-Vessina Udoh 
-Onyinye Alago
+* Aniedi Bassey
+* Favor Alozie
+* Adeola Adeagbo
+* Sherifat Sanni
+* Vessina Udoh 
+* Onyinye Alago
